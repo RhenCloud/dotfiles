@@ -1,0 +1,12 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = hyprland-git
+
+[Action]
+Description = Updating Hyprland Plugins
+Depends = pacman
+Depends = hyprland-git
+When = PostTransaction
+Exec = /usr/bin/hyprpm update -f
+

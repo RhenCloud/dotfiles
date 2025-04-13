@@ -1,0 +1,212 @@
+/* @define-color background-darker rgba(30, 31, 41, 230);
+@define-color background #282a36;
+@define-color selection #44475a;
+@define-color foreground #f8f8f2;
+@define-color comment #6272a4;
+@define-color cyan #8be9fd;
+@define-color green #50fa7b;
+@define-color orange #ffb86c;
+@define-color pink #ff79c6;
+@define-color purple #bd93f9;
+@define-color red #ff5555;
+@define-color yellow #f1fa8c; */
+
+* {
+    border: none;
+    font-family: "Maple Mono NF CN", "Noto Sans CJK SC";
+    font-size: 16px;
+    min-height: 14px;
+}
+
+#waybar {
+    font-family: "Maple Mono NF CN";
+    background: rgba(20, 20, 20, 20);
+    /* background: #282a36; */
+    min-height: 20px;
+    border-radius: 0px;
+}
+
+#window {
+    margin: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    transition: none;
+    color: white;
+    background: transparent;
+    font-family: "Maple Mono NF CN", "Noto Sans CJK SC";
+}
+
+#tags {
+    color: #eeeeee;
+    background: rgba(50, 50, 50, 80);
+    /* background: #bd93f9; */
+    /* margin: 6px; */
+    font-family: "Maple Mono NF CN";
+    border-radius: 5px;
+}
+
+#tags button {
+    /* margin: 2px; */
+    padding: 3px;
+    color: white;
+    background: rgba(50, 50, 50, 80);
+}
+
+/* #tags button.occupied {
+    background: rgba(170, 150, 170, 80);
+} */
+
+#tags button.focused {
+    background: rgba(200, 200, 200, 80);
+}
+
+#tags button.urgent {
+    background: rgb(171, 101, 101);
+    color: #fff;
+}
+
+#workspaces {
+    color: #eeeeee;
+    background: rgba(50, 50, 50, 80);
+    /* background: #bd93f9; */
+    margin: 6px;
+    font-family: "Maple Mono NF CN";
+    border-radius: 5px;
+}
+
+#workspaces button {
+    /* margin: 2px; */
+    padding: 3px;
+    color: white;
+    background: rgba(50, 50, 50, 80);
+}
+#workspaces button:hover {
+    color: black;
+    background: rgba(200, 200, 200, 80);
+}
+
+#workspaces button.active {
+    /* color: cyan; */
+    background: rgba(170, 150, 170, 80);
+    color: cyan;
+}
+
+#workspace button.urgent {
+    background-color: red;
+}
+
+#network {
+    font-family: "Maple Mono NF CN";
+}
+
+#pulseaudio {
+    font-family: "Maple Mono NF CN";
+}
+
+#network:hover #pulseaudio:hover #clock {
+    margin: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    transition: none;
+    color: white;
+    font-size: 22px;
+    font-family: "Maple Mono NF CN";
+    background: transparent;
+}
+
+#memory {
+    font-family: "Maple Mono NF CN";
+    margin: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    transition: none;
+    color: white;
+    background: rgba(0, 0, 0, 80);
+}
+
+#cpu {
+    font-family: "Maple Mono NF CN";
+    margin: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    transition: none;
+    color: white;
+    background: rgba(0, 0, 0, 80);
+}
+
+#tray {
+    margin: 6px;
+    /* padding: 5px; */
+    /* padding-left: 5px;
+    padding-right: 5px; */
+    /* border-radius: 5px; */
+    transition: none;
+    background: transparent;
+}
+
+#custom-notification {
+    font-family: "Maple Mono NF CN";
+    border-radius: 5px;
+    /* padding-left: 5px; */
+    /* padding-right: 5px; */
+}
+
+#custom-launcher {
+    font-size: 24px;
+    margin: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    transition: none;
+    color: rgb(134, 216, 231);
+    background: rgb(22, 19, 32);
+}
+
+#custom-quit {
+    font-family: "Maple Mono NF CN";
+    font-size: 16px;
+    /* padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px; */
+}
+
+#custom-lock {
+    font-family: "Maple Mono NF CN";
+    font-size: 18px;
+}
+
+#custom-reboot {
+    font-family: "Maple Mono NF CN";
+    font-size: 18px;
+}
+
+#custom-power {
+    font-family: "Maple Mono NF CN";
+    font-size: 18px;
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    background-color: black;
+}
+
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background-color: green;
+}

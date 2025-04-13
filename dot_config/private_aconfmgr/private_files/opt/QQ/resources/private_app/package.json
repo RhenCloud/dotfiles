@@ -1,0 +1,28 @@
+{
+  "name": "QQ",
+  "version": "3.2.15-31363",
+  "private": true,
+  "description": "QQ",
+  "productName": "QQ",
+  "author": {
+    "name": "Tencent",
+    "email": "QQ-Team@tencent.com"
+  },
+  "homepage": "https://im.qq.com",
+  "sideEffects": true,
+  "bin": {
+    "qd": "externals/devtools/cli/index.js"
+  },
+  "main": "./app_launcher/LiteLoaderQQNT.js",
+  "pnpm": {
+    "patchedDependencies": {
+      "@vue/runtime-dom@3.5.12": "patches/@vue__runtime-dom@3.5.12.patch",
+      "@swc/helpers@0.5.3": "patches/@swc__helpers@0.5.3.patch",
+      "vuex@4.1.0": "patches/vuex@4.1.0.patch"
+    }
+  },
+  "buildVersion": "31363",
+  "platform": "linux",
+  "eleArch": "x64",
+  "linuxFormat": "deb"
+}

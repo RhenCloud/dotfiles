@@ -1,0 +1,6 @@
+{
+    "active_classes": ["QQ","wechat","zoom"],
+    "inactive_classes": ["code","kitty","musicfox","google-chrome","clipse","org.wezfurlong.wezterm","firefox"],
+    "active_titles": ["微信"],
+    "inactive_titles": ["Minecraft .*"]
+}

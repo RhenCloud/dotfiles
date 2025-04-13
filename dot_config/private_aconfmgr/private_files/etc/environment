@@ -1,0 +1,18 @@
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+
+# GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+SDL_IM_MODULE=fcitx
+INPUT_METHOD=fcitx
+GLFW_IM_MODULE=ibus
+
+GBM_BACKEND=nvidia-drm
+__GLX_VENDOR_LIBRARY_NAME=nvidia
+ENABLE_VKBASALT=1
+LIBVA_DRIVER_NAME=nvidia
+

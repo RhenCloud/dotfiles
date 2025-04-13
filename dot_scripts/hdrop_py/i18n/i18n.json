@@ -1,0 +1,16 @@
+{
+    "en": {
+        "class_help": "The class name of the window to be run.",
+        "focus_help": "Focus the window and switch to its present workspace.",
+        "floating_help": "Spawn as a floating window.",
+        "height_help": "If using --floating: set the height of the window.\nEnter percentage value without % sign.",
+        "width_help": "If using --width: set the width of the window.\nEnter percentage value without % sign."
+    },
+    "cn": {
+        "class_help": "要运行的窗口的类名。",
+        "focus_help": "聚焦窗口置于前台并切换到其当前工作区。",
+        "floating_help": "以浮动窗口形式启动。",
+        "height_help": "如果使用--floating：设置窗口的高度。\n输入百分比值时不带%符号。",
+        "width_help": "如果使用--floating：设置窗口的宽度。\n输入百分比值时不带%符号。"
+    }
+}

@@ -1,0 +1,247 @@
+{
+    "layer": "top",
+    "height": 30,
+    "spacing": 6,
+    "icon-size": 20,
+    "group/group-power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false
+        },
+        "modules": ["custom/power", "custom/quit", "custom/lock", "custom/reboot"]
+    },
+    "group/group-pulseaudio": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-pulseaudio",
+            "transition-left-to-right": true,
+            "click-to-reveal": true
+        },
+        "modules": ["pulseaudio", "pulseaudio/slider"]
+    },
+    "group/group-bluetooth": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-bluetooth",
+            "transition-left-to-right": true,
+            "click-to-reveal": true
+        },
+        "modules": ["custom/bluetooth", "bluetooth"]
+    },
+    "modules-left": [
+        "custom/launcher",
+        "dwl/tags",
+        "hyprland/workspaces",
+        // "cpu",
+        // "memory",
+        "mpris"
+        // "mpd"
+    ],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [
+        "tray",
+        "privacy",
+        "clock",
+        "custom/notification",
+        "group/group-pulseaudio",
+        "network",
+        "group/group-power"
+    ],
+    "bluetooth": {
+        "format": "{status}",
+        "format-connected": "{num_connections} connected",
+        "format-disconnected": "",
+        "format-connected-battery": "{device_alias} {device_battery_percentage}%"
+    },
+    "mpd": {
+        "server": "localhost",
+        "port": "6600",
+        "format": "{stateIcon} {title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+        "tooltip-format": "{stateIcon} {title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+        // "title-len": 10,
+        "max-length": 50,
+        "on-click": "mpc toggle",
+        // "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous",
+        "state-icons": { "paused": "▶", "playing": "" }
+    },
+    "mpris": {
+        "interval": 1,
+        "[format]-len": 50,
+        "dynamic-len": 50,
+        "dynamic-importance-order": ["title", "artist", "position", "length"],
+        "dynamic-order": ["title", "artist", "position", "length"],
+        // "format": "{player_icon} {title} - {artist} [{position}/{length}]",
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+            "default": "",
+            "mpv": "🎵"
+        },
+        "status-icons": {
+            "paused": "▶"
+        }
+    },
+    "hyprland/workspaces": {
+        "format": "{name}",
+        // "format": "{name} {windows} ",
+        "format-window-separator": " ",
+        // "window-rewrite-default": "",
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "class<google-chrome>": "", // Windows whose classes are "google-chrome"
+            "class<org.kde.dolphin>": "", // Windows whose classes are "filemanager"
+            "title<.*youtube.*>": "", // Windows whose titles contain "youtube"
+            "title<.*bilibili.*>": "", // Windows whose titles contain "bilibili"
+            "wezterm": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
+            "code": "󰨞",
+            "class<io.github.waylyrics.Waylyrics>": "",
+            "class<musicfox>": "",
+            "class<wechat>": "",
+            "class<.*fcitxfcit.*>": "",
+            "title<.*Fcitx5 Input Window.*>": "",
+            "class<zoom>": ""
+        },
+
+        "icon-size": 14,
+        "active-only": false,
+        "all-outputs": false,
+        // "persistent-workspaces": {
+        //     "*": 10
+        // },
+        "on-scroll-up": "hyprctl dispatch workspace r-1",
+        "on-scroll-down": "hyprctl dispatch workspace r+1"
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+    "pulseaudio": {
+        "tooltip": false,
+        "format": "{icon}{volume}% ",
+        "format-muted": " ",
+        "on-scroll-up": "swayosd-client --output-volume 2",
+        "on-scroll-down": "swayosd-client --output-volume -2",
+        "on-click-middle": "pavucontrol",
+        "format-icons": {
+            "default": [" ", " ", " "]
+        }
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            "(.*) - Google Chrome": "$1",
+            "Visual Studio Code - (.*)": "VSCode - $1"
+        },
+        "separate-outputs": true,
+        "max-length": 60,
+        "icon": true
+    },
+    "network": {
+        "tooltip": false,
+        "format-wifi": "  {essid}",
+        "format-ethernet": " ",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click-right": "nm-connection-editor"
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10,
+        "reverse-direction": true
+    },
+    "clock": {
+        "interval": 1,
+        "tooltip-format": "{:%Y-%m-%d %A %H:%M:%S}",
+        "locale": "zh_CN.UTF-8",
+        "timezones": ["Asia/Shanghai"],
+        "format": "{:%H:%M:%S}",
+        "format-alt": "{:%Y年%m月%d日 %A}"
+    },
+    "cpu": {
+        "interval": 15,
+        "format": " {}%",
+        "max-length": 10,
+        "on-click": "kitty btop"
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10
+    },
+    "privacy": {
+        "icon-spacing": 10,
+        "icon-size": 20,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 20
+            },
+            // {
+            //     "type": "audio-out",
+            //     "tooltip": true,
+            //     "tooltip-icon-size": 24
+            // },
+            {
+                "type": "audio-in",
+                // "format": " ",
+                "tooltip": true,
+                "tooltip-icon-size": 20
+            }
+        ]
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span> ",
+            "none": " ",
+            "dnd-notification": "<span foreground='red'><sup></sup></span> ",
+            "dnd-none": " ",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span> ",
+            "inhibited-none": "  ",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span> ",
+            "dnd-inhibited-none": "  "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/launcher": {
+        // "icon-size": 24,
+        "format": "",
+        // "format": "",
+        "on-click": "rofi -show drun --terminal alacritty",
+        "on-click-right": "rofi -show run --terminal alacritty"
+    },
+    "custom/quit": {
+        "format": " 󰍃 ",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit"
+    },
+    "custom/lock": {
+        "format": " 󰍁 ",
+        "tooltip": false,
+        "on-click": "hyprlock"
+    },
+    "custom/reboot": {
+        "format": " 󰜉 ",
+        "tooltip": false,
+        "on-click": "reboot"
+    },
+    "custom/power": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "shutdown now"
+    }
+}

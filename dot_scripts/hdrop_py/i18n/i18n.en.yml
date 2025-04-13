@@ -1,0 +1,3 @@
+en:
+    hi: Hello
+    window_not_found_by_class: The windows class name is {} did not match

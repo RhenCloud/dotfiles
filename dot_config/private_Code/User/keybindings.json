@@ -1,0 +1,100 @@
+// 将键绑定放在此文件中以覆盖默认值
+[
+    {
+        "key": "alt+r",
+        "command": "vscode-neovim.restart"
+    },
+    // 切换侧边栏显示状态
+    {
+        "key": "alt+n [",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    // 显示文件资源管理器
+    {
+        "key": "alt+n f",
+        "command": "workbench.files.action.focusFilesExplorer"
+    },
+    // 显示TODO Tree
+    {
+        "key": "alt+n t",
+        "command": "todo-tree-view.focus"
+    },
+    // 显示全局搜索
+    {
+        "key": "alt+n g",
+        "command": "workbench.action.replaceInFiles"
+    },
+    // 显示debug
+    {
+        "key": "alt+n d",
+        "command": "workbench.view.debug",
+        "when": "viewContainer.workbench.view.debug.enabled"
+    },
+    // 显示SQL Tools
+    {
+        "key": "alt+n s",
+        "command": "workbench.view.extension.sqltoolsActivityBarContainer"
+    },
+    // 显示插件商店
+    {
+        "key": "alt+n e",
+        "command": "workbench.view.extensions",
+        "when": "viewContainer.workbench.view.extensions.enabled"
+    },
+    {
+        "key": "alt+[",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "alt+]",
+        "command": "workbench.action.nextEditor"
+    },
+    // 触发帮助提示
+    {
+        "key": "alt+h",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus"
+    },
+    // 触发建议提示
+    {
+        "key": "alt+s",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+s",
+        "command": "hideSuggestWidget",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    // 移动到下一个建议
+    {
+        "key": "alt+n",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    // 移动到上一个建议
+    {
+        "key": "alt+p",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "alt+k",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+j",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "-workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "shift+meta+c",
+        "command": "-vscode-wezterm.openTerminal"
+    }
+]

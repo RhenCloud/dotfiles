@@ -1,0 +1,23 @@
+[connection]
+id=WIN-A0QC78TBVVA 5512
+uuid=772fd675-5db6-44cd-a878-3bb0f9e9442b
+type=wifi
+interface-name=wlan0
+
+[wifi]
+mode=infrastructure
+ssid=WIN-A0QC78TBVVA 5512
+
+[wifi-security]
+auth-alg=open
+key-mgmt=wpa-psk
+psk=ljr811226
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=default
+method=auto
+
+[proxy]

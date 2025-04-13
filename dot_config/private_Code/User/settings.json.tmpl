@@ -1,0 +1,567 @@
+{
+    {{ .chezmoi.pathSeparator }}*editor*{{ .chezmoi.pathSeparator }}
+    "editor.cursorBlinking"{{ .chezmoi.pathListSeparator }} "smooth", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}使编辑器光标的闪烁平滑，有呼吸感
+    "editor.formatOnPaste"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}在粘贴时格式化代码
+    "editor.formatOnType"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}敲完一行代码自动格式化
+    "editor.smoothScrolling"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}使编辑器滚动变平滑
+    "editor.tabCompletion"{{ .chezmoi.pathListSeparator }} "on", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}启用Tab补全
+    "editor.fontFamily"{{ .chezmoi.pathListSeparator }} "\"Maple Mono NF CN\",\"Input Mono\"", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}字体设置
+    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} "editor.fontLigatures"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}启用字体连字
+    "editor.fontLigatures"{{ .chezmoi.pathListSeparator }} "'zero','cv03','ss03','ss05','cv97','cv98'",
+    "editor.detectIndentation"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}基于文件内容选择缩进用制表符还是空格
+    {{ .chezmoi.pathSeparator }}*
+    因为有时候VSCode的判断是错误的
+    *{{ .chezmoi.pathSeparator }}
+    "editor.insertSpaces"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}敲下Tab键时插入4个空格而不是制表符
+    "editor.copyWithSyntaxHighlighting"{{ .chezmoi.pathListSeparator }} false, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}复制代码时复制纯文本而不是连语法高亮都复制了
+    "editor.suggest.snippetsPreventQuickSuggestions"{{ .chezmoi.pathListSeparator }} false, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}这个开不开效果好像都一样，据说是因为一个bug，建议关掉
+    "editor.stickyTabStops"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}在缩进上移动光标时四个空格一组来移动，就仿佛它们是制表符(\t)一样
+    "editor.wordBasedSuggestions"{{ .chezmoi.pathListSeparator }} "off", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}关闭基于文件中单词来联想的功能（语言自带的联想就够了，开了这个会导致用vscode写MarkDown时的中文引号异常联想）
+    "editor.linkedEditing"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}html标签自动重命名（喜大普奔！终于不需要Auto Rename Tag插件了！）
+    "editor.wordWrap"{{ .chezmoi.pathListSeparator }} "on", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}在文件内容溢出vscode显示区域时自动折行
+    "editor.cursorSmoothCaretAnimation"{{ .chezmoi.pathListSeparator }} "on", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}让光标移动、插入变得平滑
+    "editor.renderControlCharacters"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}编辑器中显示不可见的控制字符
+    "editor.renderWhitespace"{{ .chezmoi.pathListSeparator }} "all", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}以一个小灰点的样子使空格可见
+    {{ .chezmoi.pathSeparator }}*terminal*{{ .chezmoi.pathSeparator }}
+    "terminal.integrated.cursorBlinking"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}终端光标闪烁
+    "terminal.integrated.rightClickBehavior"{{ .chezmoi.pathListSeparator }} "paste", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}在终端中右键时粘贴（个人喜好）
+    {{ .chezmoi.pathSeparator }}*files*{{ .chezmoi.pathSeparator }}
+    "files.autoGuessEncoding"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}在编辑器失去焦点时自动保存，这使自动保存近乎达到“无感知”的体验
+    "files.exclude"{{ .chezmoi.pathListSeparator }} {
+        {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}隐藏一些碍眼的文件夹
+        "**{{ .chezmoi.pathSeparator }}.{{ .chezmoi.config.git.command }}"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.pathSeparator }}.svn"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.pathSeparator }}.hg"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.pathSeparator }}CVS"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.pathSeparator }}.DS_Store"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.config.tempDir }}"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.pathSeparator }}node_modules"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.pathSeparator }}bower_components"{{ .chezmoi.pathListSeparator }} true
+    },
+    "files.watcherExclude"{{ .chezmoi.pathListSeparator }} {
+        {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}不索引一些不必要索引的大文件夹以减少内存和CPU消耗
+        "**{{ .chezmoi.pathSeparator }}.{{ .chezmoi.config.git.command }}{{ .chezmoi.pathSeparator }}objects{{ .chezmoi.pathSeparator }}**"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.pathSeparator }}.{{ .chezmoi.config.git.command }}{{ .chezmoi.pathSeparator }}subtree-cache{{ .chezmoi.pathSeparator }}**"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.pathSeparator }}node_modules{{ .chezmoi.pathSeparator }}**"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.config.tempDir }}{{ .chezmoi.pathSeparator }}**"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.pathSeparator }}bower_components{{ .chezmoi.pathSeparator }}**"{{ .chezmoi.pathListSeparator }} true,
+        "**{{ .chezmoi.pathSeparator }}dist{{ .chezmoi.pathSeparator }}**"{{ .chezmoi.pathListSeparator }} true
+    },
+    {{ .chezmoi.pathSeparator }}*workbench*{{ .chezmoi.pathSeparator }}
+    "workbench.list.smoothScrolling"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}打开文件时不是“预览”模式，即在编辑一个文件时打开编辑另一个文件不会覆盖当前编辑的文件而是新建一个标签页
+    "workbench.editor.wrapTabs"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}隐藏新建无标题文件时的“选择语言？”提示（个人喜好，可以删掉此行然后Ctrl+N打开无标题新文件看看不hidden的效果）
+    {{ .chezmoi.pathSeparator }}*explorer*{{ .chezmoi.pathSeparator }}
+    "explorer.confirmDelete"{{ .chezmoi.pathListSeparator }} false, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}删除文件时不弹出确认弹窗（因为很烦）
+    "explorer.confirmDragAndDrop"{{ .chezmoi.pathListSeparator }} false, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}往左边文件资源管理器拖动东西来移动{{ .chezmoi.pathSeparator }}复制时不显示确认窗口（因为很烦）
+    {{ .chezmoi.pathSeparator }}*search*{{ .chezmoi.pathSeparator }}
+    "search.followSymlinks"{{ .chezmoi.pathListSeparator }} false, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}使用更具有VSCode的UI风格的弹窗提示（更美观）
+    {{ .chezmoi.pathSeparator }}*debug*{{ .chezmoi.pathSeparator }}
+    "debug.internalConsoleOptions"{{ .chezmoi.pathListSeparator }} "openOnSessionStart", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}每次调试都打开调试控制台，方便调试
+    "debug.showBreakpointsInOverviewRuler"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}在滚动条标尺上显示断点的位置，便于查找断点的位置
+    "debug.toolBarLocation"{{ .chezmoi.pathListSeparator }} "docked", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}固定调试时工具条的位置，防止遮挡代码内容（个人喜好）
+    "debug.saveBeforeStart"{{ .chezmoi.pathListSeparator }} "nonUntitledEditorsInActiveGroup", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}在启动调试会话前保存除了无标题文档以外的文档（毕竟你创建了无标题文档就说明你根本没有想保存它的意思（至少我是这样的。））
+    "debug.onTaskErrors"{{ .chezmoi.pathListSeparator }} "showErrors", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}预启动任务出错后显示错误，并不启动调试
+    {{ .chezmoi.pathSeparator }}*html*{{ .chezmoi.pathSeparator }}
+    "html.format.indentHandlebars"{{ .chezmoi.pathListSeparator }} true,
+    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} "terminal.external.windowsExec"{{ .chezmoi.pathListSeparator }} "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "terminal.external.windowsExec"{{ .chezmoi.pathListSeparator }} "",
+    "cmake.configureOnOpen"{{ .chezmoi.pathListSeparator }} true,
+    "security.workspace.trust.untrustedFiles"{{ .chezmoi.pathListSeparator }} "open",
+    "prettier.endOfLine"{{ .chezmoi.pathListSeparator }} "{{ .chezmoi.config.color }}",
+    "prettier.tabWidth"{{ .chezmoi.pathListSeparator }} 4,
+    "editor.formatOnSave"{{ .chezmoi.pathListSeparator }} true,
+    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} "editor.fontWeight"{{ .chezmoi.pathListSeparator }} "600",
+    "editor.fontWeight"{{ .chezmoi.pathListSeparator }} "550",
+    "vscode-office.openOutline"{{ .chezmoi.pathListSeparator }} true,
+    "[python]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "charliermarsh.ruff",
+        "editor.formatOnSave"{{ .chezmoi.pathListSeparator }} true
+    },
+    "[go]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "golang.go",
+        "editor.formatOnSave"{{ .chezmoi.pathListSeparator }} true
+    },
+    "[cpp]"{{ .chezmoi.pathListSeparator }} {
+        "editor.wordBasedSuggestions"{{ .chezmoi.pathListSeparator }} "off",
+        "editor.suggest.insertMode"{{ .chezmoi.pathListSeparator }} "replace",
+        "editor.semanticHighlighting.enabled"{{ .chezmoi.pathListSeparator }} true,
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "llvm-vs-code-extensions.vscode-clangd"
+    },
+    "terminal.integrated.profiles.windows"{{ .chezmoi.pathListSeparator }} {
+        "Fish"{{ .chezmoi.pathListSeparator }} {
+            "source"{{ .chezmoi.pathListSeparator }} "Fish",
+            "path"{{ .chezmoi.pathListSeparator }} "D{{ .chezmoi.pathListSeparator }}\\cygwin64\\Cygwin.bat"
+        },
+        "PowerShell"{{ .chezmoi.pathListSeparator }} {
+            "source"{{ .chezmoi.pathListSeparator }} "PowerShell",
+            "icon"{{ .chezmoi.pathListSeparator }} "terminal-powershell",
+            "path"{{ .chezmoi.pathListSeparator }} "C{{ .chezmoi.pathListSeparator }}\\Program Files\\PowerShell\\7\\pwsh.exe",
+            "args"{{ .chezmoi.pathListSeparator }} ["-Nologo"]
+        },
+        "Command Prompt"{{ .chezmoi.pathListSeparator }} {
+            "path"{{ .chezmoi.pathListSeparator }} ["${env{{ .chezmoi.pathListSeparator }}windir}\\Sysnative\\cmd.exe", "${env{{ .chezmoi.pathListSeparator }}windir}\\System32\\cmd.exe"],
+            "args"{{ .chezmoi.pathListSeparator }} [],
+            "icon"{{ .chezmoi.pathListSeparator }} "terminal-cmd"
+        },
+        "Git Bash"{{ .chezmoi.pathListSeparator }} {
+            "source"{{ .chezmoi.pathListSeparator }} "Git Bash"
+        },
+        "Windows PowerShell"{{ .chezmoi.pathListSeparator }} {
+            "path"{{ .chezmoi.pathListSeparator }} "C{{ .chezmoi.pathListSeparator }}\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+        }
+    },
+    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} "terminal.integrated.defaultProfile.windows"{{ .chezmoi.pathListSeparator }} "Nushell",
+    "terminal.integrated.defaultProfile.windows"{{ .chezmoi.pathListSeparator }} "Git Bash",
+    "editor.codeLensFontFamily"{{ .chezmoi.pathListSeparator }} "\"Maple Mono NF CN\"",
+    "terminal.integrated.fontFamily"{{ .chezmoi.pathListSeparator }} "\"Maple Mono NF CN\"",
+    "{{ .chezmoi.config.git.command }}.enableSmartCommit"{{ .chezmoi.pathListSeparator }} true,
+    "[jsonc]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "esbenp.prettier-vscode"
+    },
+
+    "markdown-word-count.selectionCount"{{ .chezmoi.pathListSeparator }} true,
+    "vim.autoSwitchInputMethod.enable"{{ .chezmoi.pathListSeparator }} true,
+    "vim.relativenumber"{{ .chezmoi.pathListSeparator }} true,
+    "vim.normalModeKeyBindingsNonRecursive"{{ .chezmoi.pathListSeparator }} [
+        {
+            "before"{{ .chezmoi.pathListSeparator }} ["z", "z"],
+            "commands"{{ .chezmoi.pathListSeparator }} ["editor.toggleFold"]
+        },
+        {
+            "before"{{ .chezmoi.pathListSeparator }} ["H"],
+            "after"{{ .chezmoi.pathListSeparator }} ["^"]
+        },
+        {
+            "before"{{ .chezmoi.pathListSeparator }} ["L"],
+            "after"{{ .chezmoi.pathListSeparator }} ["$"]
+        },
+        {
+            "before"{{ .chezmoi.pathListSeparator }} ["J"],
+            "after"{{ .chezmoi.pathListSeparator }} ["G"]
+        },
+        {
+            "before"{{ .chezmoi.pathListSeparator }} ["K"],
+            "after"{{ .chezmoi.pathListSeparator }} ["g", "g"]
+        },
+        {
+            "before"{{ .chezmoi.pathListSeparator }} ["<"],
+            "after"{{ .chezmoi.pathListSeparator }} ["<", "<"]
+        },
+        {
+            "before"{{ .chezmoi.pathListSeparator }} [">"],
+            "after"{{ .chezmoi.pathListSeparator }} [">", ">"]
+        },
+        {
+            "before"{{ .chezmoi.pathListSeparator }} ["{{ .chezmoi.pathSeparator }}"],
+            "commands"{{ .chezmoi.pathListSeparator }} ["editor.action.startFindReplaceAction"]
+        }
+    ],
+    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} "vim.insertModeKeyBindings"{{ .chezmoi.pathListSeparator }} [
+    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} 	{
+    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} 		"before"{{ .chezmoi.pathListSeparator }} ["j", "j"],
+    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} 		"after"{{ .chezmoi.pathListSeparator }} ["<Esc>"]
+    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} 	}
+    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} ],
+    "vim.leader"{{ .chezmoi.pathListSeparator }} "<space>",
+    "vim.useSystemClipboard"{{ .chezmoi.pathListSeparator }} true,
+    "vim.handleKeys"{{ .chezmoi.pathListSeparator }} {
+        "<C-a>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-c>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-d>"{{ .chezmoi.pathListSeparator }} true,
+        "<C-h>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-v>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-f>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-s>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-x>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-y>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-z>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-[>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-]>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-k>"{{ .chezmoi.pathListSeparator }} false,
+        "<C-e>"{{ .chezmoi.pathListSeparator }} false
+        {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} "<S-9>"{{ .chezmoi.pathListSeparator }} false
+    },
+    "background.customImages"{{ .chezmoi.pathListSeparator }} [
+        "https{{ .chezmoi.pathListSeparator }}{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}raw.githubusercontent.com{{ .chezmoi.pathSeparator }}SAWARATSUKI{{ .chezmoi.pathSeparator }}ServiceLogos{{ .chezmoi.pathSeparator }}main{{ .chezmoi.pathSeparator }}VisualStudioCode{{ .chezmoi.pathSeparator }}VisualStudioCode.png"
+    ],
+    "editor.autoClosingDelete"{{ .chezmoi.pathListSeparator }} "always",
+    "editor.autoClosingOvertype"{{ .chezmoi.pathListSeparator }} "always",
+    "editor.autoClosingQuotes"{{ .chezmoi.pathListSeparator }} "beforeWhitespace",
+    "editor.autoClosingBrackets"{{ .chezmoi.pathListSeparator }} "beforeWhitespace",
+    "workbench.editor.empty.hint"{{ .chezmoi.pathListSeparator }} "hidden",
+    "workbench.editorAssociations"{{ .chezmoi.pathListSeparator }} {
+        "*.db"{{ .chezmoi.pathListSeparator }} "default"
+    },
+    "Codegeex.Comment.LanguagePreference"{{ .chezmoi.pathListSeparator }} "中文",
+    "workbench.colorTheme"{{ .chezmoi.pathListSeparator }} "Dracula Theme",
+    "{{ .chezmoi.config.git.command }}.ignoreMissingGitWarning"{{ .chezmoi.pathListSeparator }} true,
+    "files.autoSave"{{ .chezmoi.pathListSeparator }} "afterDelay",
+    "terminal.integrated.defaultProfile.{{ .chezmoi.os }}"{{ .chezmoi.pathListSeparator }} "zsh",
+    "terminal.external.linuxExec"{{ .chezmoi.pathListSeparator }} "wezterm",
+    "terminal.integrated.cursorStyle"{{ .chezmoi.pathListSeparator }} "line",
+    "tabnine.experimentalAutoImports"{{ .chezmoi.pathListSeparator }} true,
+    "workbench.startupEditor"{{ .chezmoi.pathListSeparator }} "none",
+    "editor.unicodeHighlight.nonBasicASCII"{{ .chezmoi.pathListSeparator }} false,
+    "editor.accessibilitySupport"{{ .chezmoi.pathListSeparator }} "off",
+    "code-runner.terminalRoot"{{ .chezmoi.pathListSeparator }} "{{ .chezmoi.pathSeparator }}",
+    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} "code-runner.terminalRoot"{{ .chezmoi.pathListSeparator }} "{{ .chezmoi.pathSeparator }}cygdrive{{ .chezmoi.pathSeparator }}",
+    "code-runner.executorMap"{{ .chezmoi.pathListSeparator }} {
+        "javascript"{{ .chezmoi.pathListSeparator }} "node",
+        "java"{{ .chezmoi.pathListSeparator }} "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "c"{{ .chezmoi.pathListSeparator }} "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "zig"{{ .chezmoi.pathListSeparator }} "zig run",
+        "cpp"{{ .chezmoi.pathListSeparator }} "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "objective-c"{{ .chezmoi.pathListSeparator }} "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "php"{{ .chezmoi.pathListSeparator }} "php",
+        "python"{{ .chezmoi.pathListSeparator }} "cd $dir && $pythonPath $fileName",
+        "perl"{{ .chezmoi.pathListSeparator }} "perl",
+        "perl6"{{ .chezmoi.pathListSeparator }} "perl6",
+        "ruby"{{ .chezmoi.pathListSeparator }} "ruby",
+        "go"{{ .chezmoi.pathListSeparator }} "cd $dir && go run $fileName",
+        "lua"{{ .chezmoi.pathListSeparator }} "lua",
+        "groovy"{{ .chezmoi.pathListSeparator }} "groovy",
+        "powershell"{{ .chezmoi.pathListSeparator }} "powershell -ExecutionPolicy ByPass -File",
+        "bat"{{ .chezmoi.pathListSeparator }} "cmd {{ .chezmoi.pathSeparator }}c",
+        "shellscript"{{ .chezmoi.pathListSeparator }} "nu.exe",
+        "fsharp"{{ .chezmoi.pathListSeparator }} "fsi",
+        "csharp"{{ .chezmoi.pathListSeparator }} "dotnet run",
+        "vbscript"{{ .chezmoi.pathListSeparator }} "cscript {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}Nologo",
+        "typescript"{{ .chezmoi.pathListSeparator }} "ts-node",
+        "coffeescript"{{ .chezmoi.pathListSeparator }} "coffee",
+        "scala"{{ .chezmoi.pathListSeparator }} "scala",
+        "swift"{{ .chezmoi.pathListSeparator }} "swift",
+        "julia"{{ .chezmoi.pathListSeparator }} "julia",
+        "crystal"{{ .chezmoi.pathListSeparator }} "crystal",
+        "ocaml"{{ .chezmoi.pathListSeparator }} "ocaml",
+        "r"{{ .chezmoi.pathListSeparator }} "Rscript",
+        "applescript"{{ .chezmoi.pathListSeparator }} "osascript",
+        "clojure"{{ .chezmoi.pathListSeparator }} "lein exec",
+        "haxe"{{ .chezmoi.pathListSeparator }} "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+        "rust"{{ .chezmoi.pathListSeparator }} "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+        "racket"{{ .chezmoi.pathListSeparator }} "racket",
+        "scheme"{{ .chezmoi.pathListSeparator }} "csi -script",
+        "ahk"{{ .chezmoi.pathListSeparator }} "autohotkey",
+        "autoit"{{ .chezmoi.pathListSeparator }} "autoit3",
+        "dart"{{ .chezmoi.pathListSeparator }} "dart",
+        "pascal"{{ .chezmoi.pathListSeparator }} "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        "d"{{ .chezmoi.pathListSeparator }} "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+        "haskell"{{ .chezmoi.pathListSeparator }} "runghc",
+        "nim"{{ .chezmoi.pathListSeparator }} "nim compile --verbosity{{ .chezmoi.pathListSeparator }}0 --hints{{ .chezmoi.pathListSeparator }}off --run",
+        "lisp"{{ .chezmoi.pathListSeparator }} "sbcl --script",
+        "kit"{{ .chezmoi.pathListSeparator }} "kitc --run",
+        "v"{{ .chezmoi.pathListSeparator }} "v run",
+        "sass"{{ .chezmoi.pathListSeparator }} "sass --style expanded",
+        "scss"{{ .chezmoi.pathListSeparator }} "scss --style expanded",
+        "{{ .chezmoi.config.pager }}"{{ .chezmoi.pathListSeparator }} "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+        "FortranFreeForm"{{ .chezmoi.pathListSeparator }} "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran-modern"{{ .chezmoi.pathListSeparator }} "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran_fixed-form"{{ .chezmoi.pathListSeparator }} "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "fortran"{{ .chezmoi.pathListSeparator }} "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "sml"{{ .chezmoi.pathListSeparator }} "cd $dir && sml $fileName",
+        "mojo"{{ .chezmoi.pathListSeparator }} "mojo run",
+        "erlang"{{ .chezmoi.pathListSeparator }} "escript",
+        "spwn"{{ .chezmoi.pathListSeparator }} "spwn build",
+        "pkl"{{ .chezmoi.pathListSeparator }} "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
+        "gleam"{{ .chezmoi.pathListSeparator }} "gleam run -m $fileNameWithoutExt"
+    },
+    "terminal.integrated.enableMultiLinePasteWarning"{{ .chezmoi.pathListSeparator }} "never",
+    "Codegeex.DisabledFor"{{ .chezmoi.pathListSeparator }} {
+        "yaml"{{ .chezmoi.pathListSeparator }} true
+    },
+    "editor.unicodeHighlight.allowedLocales"{{ .chezmoi.pathListSeparator }} {
+        "zh-hant"{{ .chezmoi.pathListSeparator }} true,
+        "zh-hans"{{ .chezmoi.pathListSeparator }} true
+    },
+    "vscode_custom_css.imports"{{ .chezmoi.pathListSeparator }} [
+        "{{ .chezmoi.config.mode }}{{ .chezmoi.pathListSeparator }}{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}C{{ .chezmoi.pathListSeparator }}{{ .chezmoi.pathSeparator }}Users{{ .chezmoi.pathSeparator }}Administrator{{ .chezmoi.pathSeparator }}AppData{{ .chezmoi.pathSeparator }}Local{{ .chezmoi.pathSeparator }}Programs{{ .chezmoi.pathSeparator }}Microsoft VS Code{{ .chezmoi.pathSeparator }}resources{{ .chezmoi.pathSeparator }}app{{ .chezmoi.pathSeparator }}out{{ .chezmoi.pathSeparator }}vs{{ .chezmoi.pathSeparator }}workbench{{ .chezmoi.pathSeparator }}vscode-custom.css"
+    ],
+    "background.useFront"{{ .chezmoi.pathListSeparator }} false,
+    "background.style"{{ .chezmoi.pathListSeparator }} {
+        "background-size"{{ .chezmoi.pathListSeparator }} "800px 450px"
+    },
+    "smartInput.offStateCursorBlinking"{{ .chezmoi.pathListSeparator }} "smooth",
+    "smartInput.onStateCursorBlinking"{{ .chezmoi.pathListSeparator }} "smooth",
+    "workbench.colorCustomizations"{{ .chezmoi.pathListSeparator }} {},
+    "background.enabled"{{ .chezmoi.pathListSeparator }} false,
+    "explorer.confirmPasteNative"{{ .chezmoi.pathListSeparator }} false,
+    "editor.tokenColorCustomizations"{{ .chezmoi.pathListSeparator }} {
+        "textMateRules"{{ .chezmoi.pathListSeparator }} [
+            {
+                "scope"{{ .chezmoi.pathListSeparator }} [
+                    {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}following will be in italic
+                    "comment",
+                    "emphasis",
+                    "entity.name.method.js",
+                    "entity.name.class.js",
+                    "entity.name.tag.doctype",
+                    "entity.other.attribute-name",
+                    "entity.other.attribute-name.tag.jade",
+                    "entity.other.attribute-name.tag.pug",
+                    "keyword",
+                    "keyword.control",
+                    "keyword.operator.comparison",
+                    "keyword.control.flow.js",
+                    "keyword.control.flow.ts",
+                    "keyword.control.flow.tsx",
+                    "keyword.control.ruby",
+                    "keyword.control.module.ruby",
+                    "keyword.control.class.ruby",
+                    "keyword.control.def.ruby",
+                    "keyword.control.loop.js",
+                    "keyword.control.loop.ts",
+                    "keyword.control.import.js",
+                    "keyword.control.import.ts",
+                    "keyword.control.import.tsx",
+                    "keyword.control.from.js",
+                    "keyword.control.from.ts",
+                    "keyword.control.from.tsx",
+                    "keyword.operator.expression.delete",
+                    "keyword.operator.new",
+                    "keyword.operator.expression",
+                    "keyword.operator.cast",
+                    "keyword.operator.relational",
+                    "keyword.operator.sizeof",
+                    "keyword.operator.logical.python",
+                    "italic",
+                    "markup.italic",
+                    "markup.quote",
+                    "markup.changed",
+                    "markup.italic.markdown",
+                    "markup.quote.markdown",
+                    "markup.deleted.diff",
+                    "markup.inserted.diff",
+                    "meta.delimiter.period",
+                    "meta.diff.header.{{ .chezmoi.config.git.command }}",
+                    "meta.diff.header.from-{{ .chezmoi.config.mode }}",
+                    "meta.diff.header.to-{{ .chezmoi.config.mode }}",
+                    "meta.tag.sgml.doctype",
+                    "meta.var.expr",
+                    "meta.class meta.method.declaration meta.var.expr storage.type.js",
+                    "meta.decorator punctuation.decorator",
+                    "meta.selector",
+                    "punctuation.accessor",
+                    "punctuation.definition.comment",
+                    "punctuation.definition.template-expression.begin",
+                    "punctuation.definition.template-expression.end",
+                    "punctuation.section.embedded",
+                    "quote",
+                    "source.js constant.other.object.key.js string.unquoted.label.js",
+                    "source.go keyword.package.go",
+                    "source.go keyword.import.go",
+                    "source.go keyword.function.go",
+                    "source.go keyword.type.go",
+                    "source.go keyword.struct.go",
+                    "source.go keyword.interface.go",
+                    "source.go keyword.const.go",
+                    "source.go keyword.var.go",
+                    "source.go keyword.map.go",
+                    "source.go keyword.channel.go",
+                    "source.go keyword.control.go",
+                    "storage",
+                    "storage.type",
+                    "storage.modifier",
+                    "storage.type.property.js",
+                    "storage.type.property.ts",
+                    "storage.type.property.tsx",
+                    "tag.decorator.js entity.name.tag.js",
+                    "tag.decorator.js",
+                    "text.html.basic entity.other.attribute-name.html",
+                    "text.html.basic entity.other.attribute-name",
+                    "variable.language",
+                    "variable.other.object.property"
+                ],
+                "settings"{{ .chezmoi.pathListSeparator }} {
+                    "fontStyle"{{ .chezmoi.pathListSeparator }} "italic"
+                }
+            }
+        ]
+    },
+    "nebula-theme.themeItalics"{{ .chezmoi.pathListSeparator }} "4 - no restraint",
+    "nebula-theme.materialize"{{ .chezmoi.pathListSeparator }} true,
+    "smartInput.inputMethodType"{{ .chezmoi.pathListSeparator }} "其他输入法",
+    "Codegeex.CompletionModel"{{ .chezmoi.pathListSeparator }} "CodeGeeX Pro[Beta]",
+    "Codegeex.GenerationPreference"{{ .chezmoi.pathListSeparator }} "line by line",
+    "code-runner.saveFileBeforeRun"{{ .chezmoi.pathListSeparator }} true,
+    "code-runner.runInTerminal"{{ .chezmoi.pathListSeparator }} true,
+    "fittencode.languagePreference.displayPreference"{{ .chezmoi.pathListSeparator }} "zh-cn",
+    "fittencode.languagePreference.commentPreference"{{ .chezmoi.pathListSeparator }} "zh-cn",
+    "go.formatTool"{{ .chezmoi.pathListSeparator }} "gofmt",
+    "security.workspace.trust.banner"{{ .chezmoi.pathListSeparator }} "never",
+    "security.workspace.trust.enabled"{{ .chezmoi.pathListSeparator }} false,
+    "security.workspace.trust.startupPrompt"{{ .chezmoi.pathListSeparator }} "never",
+    "window.dialogStyle"{{ .chezmoi.pathListSeparator }} "custom",
+    "window.menuBarVisibility"{{ .chezmoi.pathListSeparator }} "visible",
+    "editor.fontVariations"{{ .chezmoi.pathListSeparator }} false,
+    "markdown.preview.fontFamily"{{ .chezmoi.pathListSeparator }} "'Maple Mono NF CN',-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
+    "explorer.copyRelativePathSeparator"{{ .chezmoi.pathListSeparator }} "{{ .chezmoi.pathSeparator }}",
+    "editor.stickyScroll.enabled"{{ .chezmoi.pathListSeparator }} false,
+    "code-runner.clearPreviousOutput"{{ .chezmoi.pathListSeparator }} true,
+    "[xml]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "redhat.vscode-xml"
+    },
+    "java.configuration.maven.userSettings"{{ .chezmoi.pathListSeparator }} "D{{ .chezmoi.pathListSeparator }}\\Program Files\\Maven\\conf\\settings.xml",
+    "java.configuration.maven.globalSettings"{{ .chezmoi.pathListSeparator }} "D{{ .chezmoi.pathListSeparator }}\\Program Files\\Maven\\conf\\settings.xml",
+    "{{ .chezmoi.config.git.command }}.confirmSync"{{ .chezmoi.pathListSeparator }} false,
+    "{{ .chezmoi.config.git.command }}.autofetch"{{ .chezmoi.pathListSeparator }} true,
+    "[{{ .chezmoi.config.format }}]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "esbenp.prettier-vscode"
+    },
+    "animations.Enabled"{{ .chezmoi.pathListSeparator }} true,
+    "animations.Install-Method"{{ .chezmoi.pathListSeparator }} "Apc Customize UI++",
+    "apc.imports"{{ .chezmoi.pathListSeparator }} [
+        "{{ .chezmoi.config.mode }}{{ .chezmoi.pathListSeparator }}{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}c{{ .chezmoi.pathListSeparator }}{{ .chezmoi.pathSeparator }}Users{{ .chezmoi.pathSeparator }}Administrator{{ .chezmoi.pathSeparator }}.vscode{{ .chezmoi.pathSeparator }}extensions{{ .chezmoi.pathSeparator }}brandonkirbyson.vscode-animations-2.0.3{{ .chezmoi.pathSeparator }}dist{{ .chezmoi.pathSeparator }}updateHandler.js"
+    ],
+    "animations.CursorAnimation"{{ .chezmoi.pathListSeparator }} true,
+    "[html]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "vscode.html-language-features"
+    },
+    "[rust]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "rust-lang.rust-analyzer"
+    },
+    "[csharp]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "ms-dotnettools.csharp"
+    },
+    "Lingma.DisplayLanguage"{{ .chezmoi.pathListSeparator }} "简体中文",
+    "files.associations"{{ .chezmoi.pathListSeparator }} {
+        "*.xml"{{ .chezmoi.pathListSeparator }} "xml",
+        "*.nix"{{ .chezmoi.pathListSeparator }} "nix"
+    },
+    "[javascript]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "esbenp.prettier-vscode"
+    },
+    "[typescript]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "esbenp.prettier-vscode"
+    },
+    "scm.inputFontFamily"{{ .chezmoi.pathListSeparator }} "editor",
+    "ruff.lint.preview"{{ .chezmoi.pathListSeparator }} true,
+    "editor.wordWrapColumn"{{ .chezmoi.pathListSeparator }} 120,
+    "editor.wrappingIndent"{{ .chezmoi.pathListSeparator }} "indent",
+    "[css]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "esbenp.prettier-vscode"
+    },
+    "[yaml]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "esbenp.prettier-vscode"
+    },
+    "explorer.fileNesting.patterns"{{ .chezmoi.pathListSeparator }} {
+        "*.ts"{{ .chezmoi.pathListSeparator }} "${capture}.js",
+        "*.js"{{ .chezmoi.pathListSeparator }} "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx"{{ .chezmoi.pathListSeparator }} "${capture}.js",
+        "*.tsx"{{ .chezmoi.pathListSeparator }} "${capture}.ts",
+        "tsconfig.{{ .chezmoi.config.format }}"{{ .chezmoi.pathListSeparator }} "tsconfig.*.{{ .chezmoi.config.format }}",
+        "package.{{ .chezmoi.config.format }}"{{ .chezmoi.pathListSeparator }} "package-lock.{{ .chezmoi.config.format }}, yarn.lock, pnpm-lock.yaml, bun.lockb",
+        "pubspec.yaml"{{ .chezmoi.pathListSeparator }} "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata",
+        "*.dart"{{ .chezmoi.pathListSeparator }} "${capture}.g.dart",
+        "*.fs"{{ .chezmoi.pathListSeparator }} "${basename}.fsi, ${basename}.fs.js, ${basename}.fs.js.map",
+        "*.fsl"{{ .chezmoi.pathListSeparator }} "${basename}.fsi, ${basename}.fs",
+        "*.fsy"{{ .chezmoi.pathListSeparator }} "${basename}.fsi, ${basename}.fs",
+        "Cargo.toml"{{ .chezmoi.pathListSeparator }} "Cargo.lock",
+        "*.sqlite"{{ .chezmoi.pathListSeparator }} "${capture}.${extname}-*",
+        "*.db"{{ .chezmoi.pathListSeparator }} "${capture}.${extname}-*",
+        "*.sqlite3"{{ .chezmoi.pathListSeparator }} "${capture}.${extname}-*",
+        "*.db3"{{ .chezmoi.pathListSeparator }} "${capture}.${extname}-*",
+        "*.sdb"{{ .chezmoi.pathListSeparator }} "${capture}.${extname}-*",
+        "*.s3db"{{ .chezmoi.pathListSeparator }} "${capture}.${extname}-*"
+    },
+    "sqltools.useNodeRuntime"{{ .chezmoi.pathListSeparator }} true,
+    "{{ .chezmoi.config.git.command }}.openRepositoryInParentFolders"{{ .chezmoi.pathListSeparator }} "never",
+    "jupyter.askForKernelRestart"{{ .chezmoi.pathListSeparator }} false,
+    "lldb.suppressUpdateNotifications"{{ .chezmoi.pathListSeparator }} true,
+    "nix.enableLanguageServer"{{ .chezmoi.pathListSeparator }} true,
+    "nix.serverPath"{{ .chezmoi.pathListSeparator }} "nil",
+    "nix.serverSettings"{{ .chezmoi.pathListSeparator }} {
+        "nil"{{ .chezmoi.pathListSeparator }} {
+            "formatting"{{ .chezmoi.pathListSeparator }} {
+                "command"{{ .chezmoi.pathListSeparator }} ["nixfmt"]
+            }
+        }
+    },
+    "makefile.configureOnOpen"{{ .chezmoi.pathListSeparator }} true,
+    "cmake.pinnedCommands"{{ .chezmoi.pathListSeparator }} ["workbench.action.tasks.configureTaskRunner", "workbench.action.tasks.runTask"],
+    "commentTranslate.targetLanguage"{{ .chezmoi.pathListSeparator }} "zh-CN",
+    "commentTranslate.hover.concise"{{ .chezmoi.pathListSeparator }} true,
+    "cmake.showOptionsMovedNotification"{{ .chezmoi.pathListSeparator }} false,
+    "editor.quickSuggestionsDelay"{{ .chezmoi.pathListSeparator }} 0,
+    "C_Cpp.codeAnalysis.updateDelay"{{ .chezmoi.pathListSeparator }} 300,
+    "cmake.showNotAllDocumentsSavedQuestion"{{ .chezmoi.pathListSeparator }} false,
+    "[github-actions-workflow]"{{ .chezmoi.pathListSeparator }} {},
+    "editor.minimap.showSlider"{{ .chezmoi.pathListSeparator }} "always",
+    "editor.scrollbar.vertical"{{ .chezmoi.pathListSeparator }} "hidden",
+    "go.toolsManagement.autoUpdate"{{ .chezmoi.pathListSeparator }} true,
+    "extensions.experimental.affinity"{{ .chezmoi.pathListSeparator }} {
+        "asvetliakov.vscode-neovim"{{ .chezmoi.pathListSeparator }} 1
+    },
+    "vscode-neovim.compositeKeys"{{ .chezmoi.pathListSeparator }} {
+        "jj"{{ .chezmoi.pathListSeparator }} {
+            "command"{{ .chezmoi.pathListSeparator }} "vscode-neovim.escape",
+            "args"{{ .chezmoi.pathListSeparator }} []
+        }
+    },
+    "vscode-neovim.neovimInitVimPaths.{{ .chezmoi.os }}"{{ .chezmoi.pathListSeparator }} "~{{ .chezmoi.pathSeparator }}.config{{ .chezmoi.pathSeparator }}nvim{{ .chezmoi.pathSeparator }}vscode.vim",
+    "vscode-neovim.ctrlKeysForNormalMode"{{ .chezmoi.pathListSeparator }} [
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "o",
+        "r",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        "]",
+        "right",
+        "left",
+        "up",
+        "down",
+        "backspace",
+        "delete"
+    ],
+    "vscode-neovim.ctrlKeysForInsertMode"{{ .chezmoi.pathListSeparator }} ["c", "d", "j", "m", "o", "r", "t", "u", "w"],
+    "editor.lineNumbers"{{ .chezmoi.pathListSeparator }} "{{ .chezmoi.config.status.pathStyle }}",
+    "editor.scrollBeyondLastLine"{{ .chezmoi.pathListSeparator }} false,
+    "vscode-neovim.logOutputToConsole"{{ .chezmoi.pathListSeparator }} true,
+    "editor.rulers"{{ .chezmoi.pathListSeparator }} [80, 120],
+    "wakatime.apiKey"{{ .chezmoi.pathListSeparator }} "{{ .code.wakatime.apiKey }}",
+    "window.titleBarStyle"{{ .chezmoi.pathListSeparator }} "native",
+    "terminal.integrated.tabs.title"{{ .chezmoi.pathListSeparator }} "${process} | ${cwdFolder}",
+    "workbench.editor.untitled.labelFormat"{{ .chezmoi.pathListSeparator }} "name",
+    "terminal.explorerKind"{{ .chezmoi.pathListSeparator }} "external",
+    "terminal.integrated.cursorStyleInactive"{{ .chezmoi.pathListSeparator }} "line",
+    "C_Cpp.intelliSenseEngine"{{ .chezmoi.pathListSeparator }} "disabled",
+    "vscode-wezterm.weztermPath"{{ .chezmoi.pathListSeparator }} "{{ .chezmoi.pathSeparator }}usr{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}wezterm",
+    "xmake.runMode"{{ .chezmoi.pathListSeparator }} "buildRun",
+    "xmake.debugConfigType"{{ .chezmoi.pathListSeparator }} "codelldb",
+    "window.title"{{ .chezmoi.pathListSeparator }} "${appName}${separator}${activeEditorShort}${separator}${rootName}${separator}${profileName}",
+    "window.commandCenter"{{ .chezmoi.pathListSeparator }} false,
+    "chat.commandCenter.enabled"{{ .chezmoi.pathListSeparator }} false,
+    "window.customTitleBarVisibility"{{ .chezmoi.pathListSeparator }} "never",
+    "window.autoDetectColorScheme"{{ .chezmoi.pathListSeparator }} true,
+    "workbench.preferredDarkColorTheme"{{ .chezmoi.pathListSeparator }} "Dracula Theme",
+    "workbench.iconTheme"{{ .chezmoi.pathListSeparator }} "material-icon-theme",
+    "workbench.editor.enablePreview"{{ .chezmoi.pathListSeparator }} false,
+    "workbench.sideBar.location"{{ .chezmoi.pathListSeparator }} "right",
+    "clangd.onConfigChanged"{{ .chezmoi.pathListSeparator }} "restart",
+    "[dockerfile]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "ms-azuretools.vscode-docker"
+    },
+    "ime-and-cursor.obtainIMCmd"{{ .chezmoi.pathListSeparator }} "{{ .chezmoi.pathSeparator }}usr{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}fcitx5-remote",
+    "ime-and-cursor.switchIMCmd"{{ .chezmoi.pathListSeparator }} "{{ .chezmoi.pathSeparator }}usr{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}fcitx5-remote {im}",
+    "ime-and-cursor.EnglishIM"{{ .chezmoi.pathListSeparator }} "1",
+    "ime-and-cursor.ChineseIM"{{ .chezmoi.pathListSeparator }} "2",
+    "terminal.integrated.fontLigatures.enabled"{{ .chezmoi.pathListSeparator }} true,
+    "projectManager.sortList"{{ .chezmoi.pathListSeparator }} "Path",
+    "[vue]"{{ .chezmoi.pathListSeparator }} {
+        "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "esbenp.prettier-vscode"
+    },
+    "prettier.printWidth"{{ .chezmoi.pathListSeparator }} 120,
+    "prettier.resolveGlobalModules"{{ .chezmoi.pathListSeparator }} true
+}
