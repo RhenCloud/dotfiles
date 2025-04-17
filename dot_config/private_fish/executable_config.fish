@@ -10,14 +10,16 @@ set -g fish_greeting ""
 alias ff="fastfetch"
 alias restartwaybar='killall waybar && waybar &'
 alias hosts='sudo wget https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts -O /etc/hosts'
+alias vim="nvim"
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    eval (zellij setup --generate-auto-start fish | string collect)
 end
 
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_ENABLE_WAYLAND=1
-export EDITOR=vim
+export EDITOR=nvim
 # export XDG_CONFIG_HOME="{$HOME}/.config"
 
 direnv hook fish | source

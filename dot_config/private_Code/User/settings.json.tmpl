@@ -7,7 +7,7 @@
     "editor.tabCompletion"{{ .chezmoi.pathListSeparator }} "on", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}启用Tab补全
     "editor.fontFamily"{{ .chezmoi.pathListSeparator }} "\"Maple Mono NF CN\",\"Input Mono\"", {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}字体设置
     {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} "editor.fontLigatures"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}启用字体连字
-    "editor.fontLigatures"{{ .chezmoi.pathListSeparator }} "'zero','cv03','ss03','ss05','cv97','cv98'",
+    "editor.fontLigatures"{{ .chezmoi.pathListSeparator }} "calt,cv03,cv32,cv34,cv35,cv36,cv37,cv96,cv97,cv98,cv99,ss03,ss05,zero",
     "editor.detectIndentation"{{ .chezmoi.pathListSeparator }} true, {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}基于文件内容选择缩进用制表符还是空格
     {{ .chezmoi.pathSeparator }}*
     因为有时候VSCode的判断是错误的
@@ -88,10 +88,6 @@
         "editor.defaultFormatter"{{ .chezmoi.pathListSeparator }} "llvm-vs-code-extensions.vscode-clangd"
     },
     "terminal.integrated.profiles.windows"{{ .chezmoi.pathListSeparator }} {
-        "Fish"{{ .chezmoi.pathListSeparator }} {
-            "source"{{ .chezmoi.pathListSeparator }} "Fish",
-            "path"{{ .chezmoi.pathListSeparator }} "D{{ .chezmoi.pathListSeparator }}\\cygwin64\\Cygwin.bat"
-        },
         "PowerShell"{{ .chezmoi.pathListSeparator }} {
             "source"{{ .chezmoi.pathListSeparator }} "PowerShell",
             "icon"{{ .chezmoi.pathListSeparator }} "terminal-powershell",
@@ -181,9 +177,6 @@
         "<C-e>"{{ .chezmoi.pathListSeparator }} false
         {{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} "<S-9>"{{ .chezmoi.pathListSeparator }} false
     },
-    "background.customImages"{{ .chezmoi.pathListSeparator }} [
-        "https{{ .chezmoi.pathListSeparator }}{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}raw.githubusercontent.com{{ .chezmoi.pathSeparator }}SAWARATSUKI{{ .chezmoi.pathSeparator }}ServiceLogos{{ .chezmoi.pathSeparator }}main{{ .chezmoi.pathSeparator }}VisualStudioCode{{ .chezmoi.pathSeparator }}VisualStudioCode.png"
-    ],
     "editor.autoClosingDelete"{{ .chezmoi.pathListSeparator }} "always",
     "editor.autoClosingOvertype"{{ .chezmoi.pathListSeparator }} "always",
     "editor.autoClosingQuotes"{{ .chezmoi.pathListSeparator }} "beforeWhitespace",
