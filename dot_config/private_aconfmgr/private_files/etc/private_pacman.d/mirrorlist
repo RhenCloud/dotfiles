@@ -8,10 +8,10 @@
 # Retrieved:  2024-09-28 06:57:09 UTC
 # Last Check: 2024-09-28 06:49:46 UTC
 
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirror.nyist.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.aliyun.com/archlinux/$repo/os/$arch
 Server = https://mirrors.jcut.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.jxust.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.shanghaitech.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch

@@ -17,7 +17,6 @@ ModifierOnlyKeyTimeout=257
 1=Hangul
 2=Super+Super_R
 3=Tools
-4=Control+Control_L
 
 [Hotkey/EnumerateGroupForwardKeys]
 0=Super+space

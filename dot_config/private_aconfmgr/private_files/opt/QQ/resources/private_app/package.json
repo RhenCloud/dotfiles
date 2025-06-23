@@ -1,6 +1,6 @@
 {
   "name": "QQ",
-  "version": "3.2.15-31363",
+  "version": "3.2.17-35341",
   "private": true,
   "description": "QQ",
   "productName": "QQ",
@@ -13,7 +13,17 @@
   "bin": {
     "qd": "externals/devtools/cli/index.js"
   },
+  "appid": {
+    "win32": "537279209",
+    "darwin": "537279233",
+    "linux": "537279245"
+  },
   "main": "./app_launcher/LiteLoaderQQNT.js",
+  "peerDependenciesMeta": {
+    "*": {
+      "optional": true
+    }
+  },
   "pnpm": {
     "patchedDependencies": {
       "@vue/runtime-dom@3.5.12": "patches/@vue__runtime-dom@3.5.12.patch",
@@ -21,7 +31,7 @@
       "vuex@4.1.0": "patches/vuex@4.1.0.patch"
     }
   },
-  "buildVersion": "31363",
+  "buildVersion": "35341",
   "platform": "linux",
   "eleArch": "x64",
   "linuxFormat": "deb"

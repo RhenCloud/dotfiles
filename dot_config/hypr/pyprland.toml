@@ -1,5 +1,33 @@
 [pyprland]
-plugins = ["toggle_special", "fetch_client_menu", "expose"]
+plugins = ["toggle_special", "fetch_client_menu", "expose", "fcitx5_switcher"]
+
 [fetch_client_menu]
 # engine = "tofi"
 separator = ""
+
+# [hyprland]
+# plugins_paths = ["/home/bkctwy/Project/pyprland/pyprland/plugins/hdrop.py"]
+plugins_paths = ["/home/bkctwy/Project/pyprland/pyprland/plugins/fcitx5_switcher.py"]
+
+[fcitx5_switcher]
+active_classes = ["wechat", "QQ", "zoom"]
+inactive_classes = [
+    "code",
+    "kitty",
+    "musicfox",
+    "google-chrome",
+    "clipse",
+    "org.wezfurlong.wezterm",
+    "firefox",
+]
+active_titles = ["微信"]
+inactive_titles = ["Minecraft .*"]
+
+# [hdrop.wechat]
+# class = "wechat"
+
+# [hdrop.code]
+# class = "code"
+
+# [hdrop.musicfox]
+# class = "musicfox"

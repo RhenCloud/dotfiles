@@ -115,7 +115,7 @@ Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin"
 ##
 ## User privilege specification
 ##
-%sakura ALL=(ALL) NOPASSWD: ALL
+%bkctwy ALL=(ALL) NOPASSWD: ALL
 
 root ALL=(ALL) NOPASSWD: ALL
 

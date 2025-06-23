@@ -2,7 +2,7 @@
 # export "https_proxy=http://127.0.0.1:7890"
 # export "all_proxy=socks5://127.0.0.1:7890"
 
-fish_vi_key_bindings
+# fish_vi_key_bindings
 
 set -g fish_greeting ""
 
@@ -12,9 +12,17 @@ alias restartwaybar='killall waybar && waybar &'
 alias hosts='sudo wget https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts -O /etc/hosts'
 alias vim="nvim"
 
+# if [ "$TERM" = "xterm-kitty" ]
+#     alias ssh="kitty +kitten ssh"
+# end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    eval (zellij setup --generate-auto-start fish | string collect)
+    set ZELLIJ_AUTO_ATTACH true
+    set ZELLIJ_AUTO_EXIT true
+    if test "$TERM_PROGRAM" != "vscode"
+        eval (zellij setup --generate-auto-start fish | string collect)
+    end
 end
 
 export MOZ_ENABLE_WAYLAND=1

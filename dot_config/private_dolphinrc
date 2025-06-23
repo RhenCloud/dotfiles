@@ -1,5 +1,9 @@
 [DetailsMode]
 ExpandableFolders=false
+PreviewSize=16
+
+[ExtractDialog]
+1920x1080 screen: Window-Maximized=true
 
 [General]
 BrowseThroughArchives=true
@@ -8,10 +12,10 @@ DoubleClickViewAction=go_up
 GlobalViewProps=false
 RememberOpenedTabs=false
 Version=202
-ViewPropsTimestamp=2024,9,28,19,30,15.439
+ViewPropsTimestamp=2025,4,28,23,34,48.451
 
 [IconsMode]
-PreviewSize=128
+PreviewSize=144
 UseSystemFont=false
 ViewFont=Maple Mono NF CN,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 

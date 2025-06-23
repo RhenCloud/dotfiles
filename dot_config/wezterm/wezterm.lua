@@ -7,7 +7,7 @@ local config = wezterm.config_builder()
 
 -- modal.apply_to_config(config)
 
--- config.default_prog = { '/bin/zsh', '-l' }
+config.default_prog = { '/bin/zsh', '-l' }
 
 config.font = wezterm.font("Maple Mono NF CN", { weight = "Regular", italic = false })
 config.font_size = 11

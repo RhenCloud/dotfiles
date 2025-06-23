@@ -132,7 +132,6 @@ CopyFile /etc/vconsole.conf
 CopyFile /etc/xdg/autostart/sunlogin.desktop
 CreateLink /etc/xdg/menus/applications.menu /etc/xdg/menus/arch-applications.menu
 CopyFile /etc/xml/catalog
-CopyFile /home/sakura/.config/Typora/themes/drake/font.css
 CopyFile /opt/QQ/resources/app/package.json
 CopyFile /opt/clion/bin/clion64.vmoptions.pacsave
 CreateDir /opt/containerd/bin 711
